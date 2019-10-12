@@ -26,23 +26,7 @@
 # %% [markdown]
 # ### Summary
 #
-# This article uses dynamic structural model to analyze the optimal portfolio allocation between a risky and a risk-fee asset over the life cycle. It finds that human wealth acts as an imperfect substitute for the risk-free asset, generating an optimal risky asset share that decreases over the life cycle. The model is further used to show that portfolio choices arising from static models with
-#
-
-# %% [markdown]
-# ### Overview 
-#
-#
-# #### Rate-of-return heterogeneity
-#
-#
-#
-# #### Non-technical methodological overview
-#
-#
-#
-# #### The two main effect of wealth taxation
-#
+# This article uses dynamic structural model to analyze the optimal portfolio allocation between a risky and a risk-fee asset over the life cycle. It finds that human wealth acts as an imperfect substitute for the risk-free asset, generating an optimal risky asset share that decreases over the life cycle. The model is further used to show that portfolio choices arising from models without life-cycle considerations (e.g, Merton) generate substantial welfare losses.
 #
 
 # %% [markdown]
@@ -93,11 +77,33 @@
 # - Stocks: paying a stochastic return $R_t = \bar{R}_f + \mu + \eta_t$, where the stochastic component $\eta_t \sim \mathcal{N}(0, \sigma^2_\eta)$ is allowed to be correlated with the aggregate labor income innovation $\xi_t$.
 
 # %% [markdown]
-# ### Results
+# ### Key Results
 #
-# The authors conduct various experiments. We now report the main ones.
+# I now report the main results of the article.
+#
+# #### The optimal risky asset share
+#
+# The next figure shows the policy function for the risky portfolio share as a function of wealth at different ages.
+#
+# <center><img src="Figures\Opt_shares_by_age.jpg" style="height:250px"></center>
+#
+# The optimal risky share is decreasing in wealth. The authors argue this is due to the fact that, at low levels of wealth, relatively safe human wealth represents a higher fraction of the consumer's wealth, so he shifts his tradeable wealth towards riskier alternatives.
+#
+# Analyzing the policy rule by age also shows that the risky share increases from young to middle age, and decreases from middle to old age. This is consistent with the previous interpretation: shares trace the humped shape of labor earnings.
+#
+# #### The welfare implications of different allocation rules
+#
+# The authors next conduct a welfare analysis of different allocation rules, including popular heuristics. The rules are presented in the next figure.
+#
+# <center><img src="Figures\Alloc_rules.jpg" style="height:500px"></center>
+#
+# The utility cost of each policy in terms of constant consumption streams with respect to the authors calculated optimal policy function is reported in the next table.
+#
+# <center><img src="Figures\Util_cost.jpg" style="height:100px"></center>
+#
+# Interestingly, the "no-income" column corresponds to the usual portfolio choice result of the optimal share being the quotient of excess returns and risk times relative risk aversion, disregarding labor income. The experiment shows this allocation produces substantial welfare losses.
 
 # %% [markdown]
 # ### Conclusion
 #
-#
+# This article provides a dynamic model with accurate lifetime income profiles in which labor income increases risky asset holdings, as it is seen as a closer substitute of risk-free assets. It finds an optimal risky asset share that decreases in wealth and with age, after middle age. The model is also used to show that ignoring labor income for portfolio allocation can generate substantial welfare losses.
