@@ -26,6 +26,7 @@
 # %% [markdown]
 # ### Summary
 #
+# This article uses dynamic structural model to analyze the optimal portfolio allocation between a risky and a risk-fee asset over the life cycle. It finds that human wealth acts as an imperfect substitute for the risk-free asset, generating an optimal risky asset share that decreases over the life cycle. The model is further used to show that portfolio choices arising from static models with
 #
 
 # %% [markdown]
@@ -47,7 +48,7 @@
 # %% [markdown]
 # ### The base model
 #
-# The authors' aim is to represent the life cycle of a consumer that is exposed to uninsurable labor income risk and chooses how to allocate his savings bet
+# The authors' aim is to represent the life cycle of a consumer that is exposed to uninsurable labor income risk and chooses how to allocate his savings between a risky and a safe asset, without the possibility to borrow or short sell.
 #
 # ##### Dynamic problem
 #
