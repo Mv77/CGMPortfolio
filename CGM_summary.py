@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.2'
-#       jupytext_version: 1.2.3
+#       jupytext_version: 1.2.4
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -45,29 +45,51 @@
 #
 
 # %% [markdown]
-# ### The model
+# ### The base model
 #
-# #### Households/entrepreneurs
-#
-#
-# #### Labor and entrepreneurial productivity
-#
-# #### The individuals' decision problems
-#
-# ##### Static production/allocation problem
+# The authors' aim is to represent the life cycle of a consumer that is exposed to uninsurable labor income risk and chooses how to allocate his savings bet
 #
 # ##### Dynamic problem
 #
-# The problem and value function of a household of age $h$ is given by
+# The problem of an agent $i$ of age $t$ in the base model is recursively represented as
 #
-# \begin{align}
-#     V_h(a;\mathbf{S}) = &\max_{c,l,a'} u(c,1-l) + \beta\frac{\phi_{h+1}}{\phi_{h}} \mathbb{E}[V_{h+1}(a',\mathbf{S}')|S]\\
-#     \text{s.t.} \quad & a' = \mathcal{Y}(a,l;z,e,\kappa;\mathcal{T}) - c(1+\tau_c)\\
-#     & a'\geq 0
-# \end{align}
+# \begin{split}
+# V_{i,t} =& \max_{0\leq C_{i,t} \leq X_{i,t}, \alpha_{i,t}\in[0,1]} U(C_{i,t}) + \delta p_t E_t\{ V_{i,t+1} (X_{i,t+1}) \}\\
+# &\text{s.t}\\
+# &X_{i,t+1} = Y_{i,t+1} + (X_{i,t} - C_{i,t})(\alpha_{i,t} R_{t+1} + (1-\alpha_{i,t})\bar{R}_f)
+# \end{split}
 #
-# where $\mathcal{Y}$ denotes the total disposable income of the individual after production and taxation, $\mathbf{S}$ is the vector of individual exogenous states, and $\mathcal{T}$ represents the tax system.
+# where $C_{i,t}$ is consumption, $\alpha_{i,t}$ is the share of savings allocated to the risky asset, $Y_{i,t}$ is labor income, and $X_{i,t}$ represents wealth. The utility function $U(\cdot)$ is assumed to be CRRA in the base model. The discount factor is $\delta$ and $p_t$ is the probability of survival from $t$ to $t+1$. Death is certain at a maximum period $T$.
 #
+# Note that the consumer can not borrow or short-sell.
+#
+# #### Labor income
+#
+# An important driver of the paper's results is the labor income process. It is specified as follows:
+#
+# \begin{equation}
+# \ln Y_{i,t} = f(t,Z_{i,t}) + v_{i,t} + \epsilon_{i,t}, \quad \text{for } t\leq K.
+# \end{equation}
+#
+# where $K$ is the (exogenous) age of retirement, $Z_{i,t}$ are demographic characteristics, $\epsilon_{i,t}\sim \mathcal{N}(0,\sigma^2_\epsilon)$ is a transitory shock, and  $v_{i,t}$ is a permanent component following a random walk
+#
+# \begin{equation}
+# v_{i,t} = v_{i,t-1} + u_{i,t} = v_{i,t-1} + \xi_t + \omega_{i,t}
+# \end{equation}
+#
+# in which the innovation is decomposed into an aggregate ($\xi_t$) and an idiosyncratic component ($\omega_{i,t}$), both following mean-0 normal distributions.
+#
+# Post-retirement income is a constant fraction $\lambda$ of income in the last working year $K$.
+#
+# A crucial aspect of the labor income process is that $f(\cdot,\cdot)$ is calibrated to match income profiles in the PSID, capturing the usual humped shape of income across lifetime.
+#
+# #### Assets and their returns
+#
+# There are two assets available for consumers to allocate their savings.
+#
+# - Bonds: paying a risk-free return $\bar{R}_f$.
+#
+# - Stocks: paying a stochastic return $R_t = \bar{R}_f + \mu + \eta_t$, where the stochastic component $\eta_t \sim \mathcal{N}(0, \sigma^2_\eta)$ is allowed to be correlated with the aggregate labor income innovation $\xi_t$.
 
 # %% [markdown]
 # ### Results
@@ -77,6 +99,4 @@
 # %% [markdown]
 # ### Conclusion
 #
-# In the presence of rate-of-return heterogeneity, capital income taxes disproportionately affect productive entrepreneurs. Switching to wealth taxation moves the tax burden towards unproductive entrepreneurs and increases after-tax return heterogeneity, which elicits a reallocation of capital towards productive entrepreneurs. The increased efficiency and the expanded tax base increase output and allow the government to reduce labor income taxes. The authors therefore conclude that wealth taxation can increase efficiency and output while decreasing consumption inequality.
 #
-# Through simulation exercises calibrated to match U.S. data, the authors find that the optimal wealth tax rate is around 3%.
