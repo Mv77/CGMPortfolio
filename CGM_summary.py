@@ -7,7 +7,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.2'
-#       jupytext_version: 1.2.4
+#       jupytext_version: 1.2.3
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -26,7 +26,7 @@
 # %% [markdown]
 # ### Summary
 #
-# This article uses dynamic structural model to analyze the optimal portfolio allocation between a risky and a risk-fee asset over the life cycle. It finds that human wealth acts as an imperfect substitute for the risk-free asset, generating an optimal risky asset share that decreases over the life cycle. The model is further used to show that portfolio choices arising from models without life-cycle considerations (e.g, Merton) generate substantial welfare losses.
+# This article uses dynamic structural model to analyze the optimal portfolio allocation between a risky and a risk-fee asset over the life cycle. It finds that human wealth acts as an imperfect substitute for the risk-free asset, generating an optimal risky asset share that decreases over the life cycle. The model is further used to show that portfolio choices arising from models without life-cycle considerations (e.g, Merton's) generate substantial welfare losses.
 #
 
 # %% [markdown]
